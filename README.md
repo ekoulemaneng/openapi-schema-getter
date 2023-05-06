@@ -15,17 +15,21 @@ yarn add openapi-schema-retriever
 ```typescript
 import schemaRetriever from 'openapi-schema-retriever'
 
-let schema
-
 const main = async () => {
 
-    /* First, by specBuilder, get, check and parse the openapi specification that can be an object or an file path string.
+    /* schemaRetriever  gets, checks and parses the openapi specification that can be an object or an file path string.
      * If the specification input is a file path string, a second argument standing for the current working directory is mandatory.
      * We recommend to use '__dirname' as second argument.
      * The file must be either a json, a yaml or a yml file. 
-     * specBuilder returns an object in accordance with OpenAPI scpecification.
+     * schemaRetriever returns an dereferenced object in accordance with OpenAPI scpecification.
     */
-    schema = await schemaRetriever('./openapi.yaml', __dirname)
+    const schema = await schemaRetriever('./openapi.yaml', __dirname)
+
+    console.log(schema) /* => {
+                                openapi: '3.1.0'
+                                ...............
+                              }
+                        */
 }
 
 main()
