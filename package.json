@@ -1,6 +1,6 @@
 {
   "name": "openapi-schema-getter",
-  "version": "1.2.0",
+  "version": "1.1.0",
   "description": "Typescript package to get an OpenApi-specification-compliant dereferenced object from an object or an json, yaml or yml file path string. For 3.1.x and 3.0.x OpenAPI versions.",
   "keywords": [
     "openapi 3.x",
