@@ -1,19 +1,19 @@
-# Openapi Schema Getter
+# Openapi Schema Retriever
 
 Typescript package to get an OpenApi-specification-compliant dereferenced object from an object or an json, yaml or yml file path string. For 3.1.x and 3.0.x OpenAPI versions.
 
 ## Installation
 ```typescript
-npm install openapi-schema-getter 
+npm install openapi-schema-retriever 
 ```
 or
 ```typescript
-yarn add openapi-schema-getter
+yarn add openapi-schema-retriever
 ```
 
 ## Usage
 ```typescript
-import schemaGetter from 'openapi-schema-getter'
+import schemaRetriever from 'openapi-schema-retriever'
 
 let schema
 
@@ -25,7 +25,7 @@ const main = async () => {
      * The file must be either a json, a yaml or a yml file. 
      * specBuilder returns an object in accordance with OpenAPI scpecification.
     */
-    schema = await schemaGetter('./openapi.yaml', __dirname)
+    schema = await schemaRetriever('./openapi.yaml', __dirname)
 }
 
 main()
