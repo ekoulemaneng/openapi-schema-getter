@@ -1,6 +1,6 @@
 # Openapi Schema Getter
 
-Typescript package that enables to get an OpenApi-specification-compliant object from an object or an json, yaml or yml file path string. For 3.1.x and 3.0.x OpenAPI versions.
+Typescript package to get an OpenApi-specification-compliant dereferenced object from an object or an json, yaml or yml file path string. For 3.1.x and 3.0.x OpenAPI versions.
 
 ## Installation
 ```typescript

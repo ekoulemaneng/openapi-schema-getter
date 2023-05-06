@@ -1,6 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 import yaml from 'yaml'
+import { Resolver } from '@stoplight/json-ref-resolver'
+import { IResolveError } from '@stoplight/json-ref-resolver/types'
 import { OpenAPIv30x, OpenAPIv31x } from 'openapi-objects-types'
 
 const SpecificationNotProvided = new Error('specification object or file (json, yaml or yaml) is not provided')
@@ -30,7 +32,14 @@ const specGetter = async (spec: OpenAPIv30x.OpenAPI | OpenAPIv31x.OpenAPI | stri
         else if (ext === '.json') schema = JSON.parse(data)
         else throw SpecificationFileNotValid
     }
-    return schema
+    const resolver = new Resolver()
+    const schemaResolved = await resolver.resolve(schema)
+    if (schemaResolved && schemaResolved.errors.length > 0) {
+        const errors: Array<IResolveError> = []
+        schemaResolved.errors.forEach(error => errors.push(error))
+        throw new Error(JSON.stringify(errors))
+    }
+    return schemaResolved.result
 }
 
 export = specGetter
